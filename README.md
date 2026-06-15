@@ -7,7 +7,7 @@
 ![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)
 
 OpenPrism sends your prompt to a **panel** of different models in parallel, then a
-**judge** model reconciles their answers — an explicit consensus / contradiction /
+**judge** model reconciles their answers, an explicit consensus / contradiction /
 gaps / blind-spots pass, then a single response better than any individual model
 produced. It's the [OpenRouter "Fusion"](https://openrouter.ai/blog) pattern as a
 small, self-hostable tool.
