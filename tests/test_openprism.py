@@ -61,7 +61,7 @@ def test_init_generates_valid_json_for_mcpservers_hosts():
     from openprism import init_cmd
 
     cmd = init_cmd._launch(local=False)
-    assert cmd[0] == "uvx" and "openprism-mcp" in cmd  # git-form by default
+    assert cmd == ["uvx", "--from", "openprism", "openprism-mcp"]  # PyPI form by default
     block = init_cmd._block("cursor", cmd, {"OPENPRISM_BACKEND": "opencode"})
     data = json.loads(block)
     assert data["mcpServers"]["openprism"]["command"] == "uvx"

@@ -3,7 +3,7 @@
   "mcp": {
     "openprism": {
       "type": "local",
-      "command": ["uvx", "--from", "git+https://github.com/ba1lly/OpenPrism", "openprism-mcp"],
+      "command": ["uvx", "--from", "openprism", "openprism-mcp"],
       "enabled": true,
       "environment": {
         "OPENPRISM_BACKEND": "opencode",

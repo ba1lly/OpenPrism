@@ -73,12 +73,13 @@ Pick whichever fits — all cross-platform (Linux / macOS / Windows / WSL).
 **B. Any MCP host via `uvx`** (needs [`uv`](https://docs.astral.sh/uv/); no clone, no venv).
 Generate the config for your host with the built-in wizard:
 ```bash
-uvx --from git+https://github.com/ba1lly/OpenPrism openprism init --host opencode
+uvx openprism init --host opencode
 #   ...or --host cursor | windsurf | gemini | codex | claude-code
 ```
-It prints (or `--write`s) the exact MCP config block, with the server launching
-via `uvx --from git+…` — works straight from GitHub, nothing to maintain. (After a
-PyPI release this shortens to `uvx openprism …`; pass `--pypi` to emit that form.)
+It prints (or `--write`s) the exact MCP config block, launching the server via
+`uvx --from openprism openprism-mcp` (the published [PyPI](https://pypi.org/project/openprism/)
+package — nothing to maintain). Prefer the bleeding edge? `--git` uses the latest
+GitHub branch; `--ref v0.1.0` pins to a git tag.
 
 **C. From source** (for development):
 ```bash
@@ -209,8 +210,6 @@ All via env vars (`.env` in the repo root — see [`.env.example`](.env.example)
 
 ## Roadmap
 
-- Publish to PyPI so the launch shortens from `uvx --from git+… openprism-mcp` to
-  `uvx --from openprism openprism-mcp` (and the CLI to `uvx openprism …`).
 - `code` mode: optional sandboxed test execution (`--verify "<cmd>"`).
 - Panelist tools on the `direct` backend (a tool-call loop, so non-opencode panels
   can browse too).

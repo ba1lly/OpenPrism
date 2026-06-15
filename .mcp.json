@@ -2,9 +2,9 @@
   "mcpServers": {
     "openprism": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/ba1lly/OpenPrism", "openprism-mcp"],
+      "args": ["--from", "openprism", "openprism-mcp"],
       "env": { "OPENPRISM_BACKEND": "opencode" },
-      "comment": "Zero-setup launch via uvx (needs `uv` installed). Runs the opencode backend by default — set OPENPRISM_BACKEND=direct + provider keys here for standalone use. SECURITY: pin a release by appending @<tag> to the git URL (e.g. ...openprism@v0.1.0) so a launch can't pull an unreviewed default branch — `openprism init --host claude-code --ref v0.1.0` generates a pinned block. For local dev: openprism init --host claude-code --local --write"
+      "comment": "Zero-setup launch via uvx (needs `uv` installed) from the published PyPI package. Runs the opencode backend by default — set OPENPRISM_BACKEND=direct + provider keys here for standalone use. Pin a version with `--from openprism==0.1.0`. For local dev: openprism init --host claude-code --local --write"
     }
   }
 }

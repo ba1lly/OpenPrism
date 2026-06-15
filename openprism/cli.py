@@ -50,10 +50,10 @@ def main(argv: list[str] | None = None) -> int:
         ip.add_argument("--judge-model", dest="judge_model", default=None)
         ip.add_argument("--local", action="store_true",
                         help="launch from this checkout instead of uvx")
-        ip.add_argument("--pypi", action="store_true",
-                        help="emit the published-package form (after PyPI publish) instead of uvx-from-git")
+        ip.add_argument("--git", action="store_true",
+                        help="launch from the latest GitHub default branch instead of the PyPI release")
         ip.add_argument("--ref", default=None,
-                        help="pin the uvx-from-git launch to a tag/branch/sha (recommended)")
+                        help="launch pinned to a git tag/branch/sha (e.g. v0.1.0)")
         ip.add_argument("--write", action="store_true", help="merge into the host's config file")
         ip.add_argument("--print", action="store_true", help="print the config block (default)")
         return run_init(ip.parse_args(argv[1:]))

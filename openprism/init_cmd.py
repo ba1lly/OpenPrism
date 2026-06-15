@@ -34,24 +34,24 @@ HOST_FILES = {
 GIT_URL = "git+https://github.com/ba1lly/OpenPrism"
 
 
-def _launch(local: bool, pypi: bool = False, ref: str | None = None) -> list[str]:
+def _launch(local: bool, ref: str | None = None, git: bool = False) -> list[str]:
     """The command that starts the MCP server.
 
-    Default is uvx-from-git. Pass `ref` (a tag/branch/sha) to PIN the version —
-    recommended, so a host launch doesn't silently pull whatever is on the default
-    branch. `pypi=True` emits the published-package form.
+    Default is the published PyPI package (stable). `ref` pins to a git tag/sha;
+    `git` uses the latest default branch (unpinned). `local` runs this checkout.
+    Note: `uvx <pkg>` runs the same-named script, but our MCP script is
+    `openprism-mcp` while the package is `openprism`, so we name it via --from.
     """
     if local:
         exe = shutil.which("openprism-mcp")
         if exe:
             return [exe]
         return [sys.executable, "-m", "openprism.mcp_server"]
-    if pypi:
-        # `uvx <pkg>` runs the same-named script; our package is `openprism` and the
-        # MCP script is `openprism-mcp`, so we must name the package via --from.
-        return ["uvx", "--from", "openprism", "openprism-mcp"]
-    url = f"{GIT_URL}@{ref}" if ref else GIT_URL
-    return ["uvx", "--from", url, "openprism-mcp"]
+    if ref:
+        return ["uvx", "--from", f"{GIT_URL}@{ref}", "openprism-mcp"]  # pinned git
+    if git:
+        return ["uvx", "--from", GIT_URL, "openprism-mcp"]  # latest default branch
+    return ["uvx", "--from", "openprism", "openprism-mcp"]  # PyPI (published, default)
 
 
 def _env(backend: str, judge_backend: str | None, judge_model: str | None) -> dict:
@@ -129,8 +129,8 @@ def run_init(args) -> int:
               file=sys.stderr)
         return 1
 
-    cmd = _launch(local=args.local, pypi=getattr(args, "pypi", False),
-                  ref=getattr(args, "ref", None))
+    cmd = _launch(local=args.local, ref=getattr(args, "ref", None),
+                  git=getattr(args, "git", False))
     env = _env(args.backend, args.judge_backend, args.judge_model)
     rel_path, schema = HOST_FILES[host]
     path = Path(os.path.expanduser(rel_path)) if rel_path.startswith("~") else Path(rel_path)
