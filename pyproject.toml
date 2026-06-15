@@ -1,7 +1,7 @@
 [project]
 name = "openprism"
 dynamic = ["version"]
-description = "Many diverse model voices, split and recombined into one judged answer (Fusion-style panel + judge) — across your own provider keys or any model in opencode."
+description = "Many diverse model voices, split and recombined into one judged answer. A Fusion-style panel and judge over your own provider keys or any model in opencode."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
