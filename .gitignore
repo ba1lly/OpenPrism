@@ -1,0 +1,15 @@
+.env
+providers.json
+__pycache__/
+*.pyc
+.venv/
+.venv-linux/
+venv/
+runs/
+*.egg-info/
+build/
+dist/
+*.bak
+.pytest_cache/
+.ruff_cache/
+.reviews/

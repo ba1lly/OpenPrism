@@ -1,0 +1,12 @@
+{
+  "name": "openprism",
+  "owner": { "name": "ba1lly" },
+  "plugins": [
+    {
+      "name": "openprism",
+      "source": "./",
+      "description": "Multi-model panel + judge (Fusion-style): research synthesis, coding best-of-N, and model bake-offs across many providers (your own keys or via opencode), reconciled by a judge model.",
+      "version": "0.1.0"
+    }
+  ]
+}

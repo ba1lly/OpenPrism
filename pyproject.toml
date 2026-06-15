@@ -1,0 +1,38 @@
+[project]
+name = "openprism"
+dynamic = ["version"]
+description = "Many diverse model voices, split and recombined into one judged answer (Fusion-style panel + judge) — across your own provider keys or any model in opencode."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "ba1lly" }]
+keywords = ["llm", "mcp", "opencode", "claude-code", "ensemble", "fusion", "ai"]
+dependencies = [
+    "openai>=1.40,<3",
+    "anthropic>=0.40,<1",
+    "python-dotenv>=1.0,<2",
+    "mcp>=1.2,<2",
+    "httpx>=0.27,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/ba1lly/OpenPrism"
+Repository = "https://github.com/ba1lly/OpenPrism"
+
+[project.scripts]
+openprism = "openprism.cli:main"
+openprism-mcp = "openprism.mcp_server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["openprism", "openprism.backends"]
+license-files = ["LICENSE"]
+
+[tool.setuptools.dynamic]
+version = { attr = "openprism.__version__" }
+
+[tool.setuptools.package-data]
+openprism = ["py.typed"]
