@@ -8,7 +8,7 @@ license = { text = "MIT" }
 authors = [{ name = "ba1lly" }]
 keywords = ["llm", "mcp", "opencode", "claude-code", "ensemble", "fusion", "ai"]
 dependencies = [
-    "openai>=1.40,<3",
+    "openai>=2.43.0,<3",
     "anthropic>=0.40,<1",
     "python-dotenv>=1.0,<2",
     "mcp>=1.2,<2",
