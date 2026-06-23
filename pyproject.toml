@@ -9,7 +9,7 @@ authors = [{ name = "ba1lly" }]
 keywords = ["llm", "mcp", "opencode", "claude-code", "ensemble", "fusion", "ai"]
 dependencies = [
     "openai>=2.43.0,<3",
-    "anthropic>=0.40,<1",
+    "anthropic>=0.111.0,<1",
     "python-dotenv>=1.2.2,<2",
     "mcp>=1.2,<2",
     "httpx>=0.27,<1",
