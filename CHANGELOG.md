@@ -3,6 +3,16 @@
 All notable changes to OpenPrism are recorded here. The format loosely follows
 [Keep a Changelog](https://keepachangelog.com/), and versions follow semver.
 
+## [0.2.0]
+
+### Added
+- `OPENPRISM_PANEL`: pin a default panel without passing `--panel` (CLI) or the MCP
+  `panel` argument on every call. A preset name, or a comma-separated list of model
+  refs (opencode: `provider/model`), e.g.
+  `OPENPRISM_PANEL=google/gemini-2.5-pro,openai/gpt-5.4,anthropic/claude-sonnet-4-6`.
+  A per-call panel still takes precedence; with neither set, the backend's
+  family-diverse auto-panel is used as before.
+
 ## [0.1.0]
 
 First release.

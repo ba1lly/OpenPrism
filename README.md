@@ -167,7 +167,7 @@ Then run `/openprism-models` (or the `models` tool) in any host to see every
 ```bash
 openprism "..." --panel "anthropic/claude-opus-4-7,google/gemini-3-pro,openai/gpt-5.2"
 ```
-With no `--panel`, OpenPrism picks a diverse default across your connected providers.
+With no `--panel`, OpenPrism picks a diverse default across your connected providers, or set `OPENPRISM_PANEL` to pin a fixed default panel.
 
 **direct backend: add providers to OpenPrism.** The default provider comes from `.env`
 (`ALIBABA_API_KEY` + `ALIBABA_BASE_URL`). Add more OpenAI-compatible providers in
@@ -195,6 +195,7 @@ Everything is set through env vars (`.env` in the repo root; see
 [`.env.example`](.env.example)): `OPENPRISM_BACKEND`, `OPENPRISM_JUDGE_BACKEND`,
 `OPENPRISM_JUDGE_MODEL`, `ANTHROPIC_API_KEY` (for the `anthropic-api` judge),
 `OPENPRISM_DEFAULT_PROVIDER` (which `direct` provider a bare model id uses),
+`OPENPRISM_PANEL` (pin the default panel: a preset name or comma-separated model refs; a per-call panel overrides it),
 `OPENPRISM_PANEL_TOOLS` (research/none/all), `OPENPRISM_MIN_FAMILIES` (diversity floor,
 default 2), `OPENPRISM_STRICT` (refuse below the floor), `OPENPRISM_MAX_PANEL` (size
 cap), `OPENPRISM_PANEL_TIMEOUT`, `OPENPRISM_MAX_TOKENS`, and the opencode-backend
