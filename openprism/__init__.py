@@ -6,4 +6,4 @@ parallel; a judge model reconciles them. Two modes:
   - code:     best-of-N selection + repair into one final solution
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

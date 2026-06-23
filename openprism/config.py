@@ -196,6 +196,12 @@ PANELS = {
 }
 DEFAULT_PANEL = "research"
 
+# Optional default-panel override. When set (and no per-call panel is passed),
+# research/code use it instead of the backend's auto-picked diverse panel. A
+# preset name, or a comma-separated list of model refs (opencode: provider/model):
+#   OPENPRISM_PANEL=google/gemini-2.5-pro,openai/gpt-5.4,anthropic/claude-sonnet-4-6
+PANEL_OVERRIDE = os.getenv("OPENPRISM_PANEL", "").strip()
+
 KNOWN_MODELS = [
     "qwen3.7-plus", "qwen3.6-plus", "qwen3.5-plus",
     "qwen3-max-2026-01-23", "qwen3-coder-next", "qwen3-coder-plus",

@@ -42,7 +42,8 @@ async def research(question: str, panel: str = "") -> str:
         question: the problem to answer.
         panel: a preset name (research | research-lean | code) or a
                comma-separated list of model refs (provider/model). Empty = the
-               backend's default panel (Alibaba 4-house for direct; a diverse
+               OPENPRISM_PANEL default if set, else the backend's default panel
+               (Alibaba 4-house for direct; a diverse
                auto-pick across connected providers for opencode).
     """
     result = await asyncio.to_thread(_run, question, "research", panel or None)
@@ -57,8 +58,8 @@ async def code(task: str, panel: str = "") -> str:
 
     Args:
         task: the coding task.
-        panel: comma-separated model refs, or empty for the backend's default
-               coder panel.
+        panel: comma-separated model refs, or empty for the OPENPRISM_PANEL
+               default if set, else the backend's default coder panel.
     """
     result = await asyncio.to_thread(_run, task, "code", panel or None)
     return _render(result)

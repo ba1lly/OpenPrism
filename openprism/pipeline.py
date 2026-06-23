@@ -56,8 +56,9 @@ def _panel_status(responses: list[PanelResponse], n_requested: int) -> tuple[str
 
 
 async def _resolve_models(backend: Backend, mode: str, panel_spec: str | None) -> list[str]:
-    if panel_spec:
-        return config.resolve_panel(panel_spec)
+    spec = panel_spec or config.PANEL_OVERRIDE or None
+    if spec:
+        return config.resolve_panel(spec)
     return await backend.default_panel(mode)
 
 
