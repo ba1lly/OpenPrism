@@ -13,6 +13,11 @@ All notable changes to OpenPrism are recorded here. The format loosely follows
   A per-call panel still takes precedence; with neither set, the backend's
   family-diverse auto-panel is used as before.
 
+### Changed
+- Raised dependency floors: `openai>=2.43.0`, `anthropic>=0.111.0`, `mcp>=1.28.0`,
+  `python-dotenv>=1.2.2` (upper bounds unchanged); the build now requires
+  `setuptools>=82.0.1`. CI bumped `actions/checkout` to v7 (setup-python already v6).
+
 ## [0.1.0]
 
 First release.
