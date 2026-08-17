@@ -1,4 +1,4 @@
-openai>=2.43.0,<3
+openai>=2.43.0,<4
 anthropic>=0.111.0,<1
 python-dotenv>=1.2.2,<2
 mcp>=1.28.0,<2
