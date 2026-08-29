@@ -11,6 +11,7 @@ All notable changes to OpenPrism are recorded here. The format loosely follows
   supported). The tool surface, stdio transport, and client-side smoke-test
   API are unchanged in v2. The server now reports its own package version as
   `serverInfo.version` (v2 defaults to empty instead of the SDK version).
+- Widened `openai` to `>=2.43.0,<4` (openai 3.x verified against the suite).
 
 ## [0.2.0]
 
