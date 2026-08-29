@@ -3,6 +3,15 @@
 All notable changes to OpenPrism are recorded here. The format loosely follows
 [Keep a Changelog](https://keepachangelog.com/), and versions follow semver.
 
+## [0.3.0]
+
+### Changed
+- Migrated the MCP server to the mcp v2 SDK: `FastMCP` → `MCPServer`
+  (`mcp.server.mcpserver`), dependency now `mcp>=2,<3` (v1 is no longer
+  supported). The tool surface, stdio transport, and client-side smoke-test
+  API are unchanged in v2. The server now reports its own package version as
+  `serverInfo.version` (v2 defaults to empty instead of the SDK version).
+
 ## [0.2.0]
 
 ### Added
