@@ -10,12 +10,14 @@ Run directly:  python -m openprism.mcp_server   (or the `openprism-mcp` console 
 """
 import asyncio
 
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
+from . import __version__
 from .backends import get_backend
 from .pipeline import PrismResult, bakeoff as _bakeoff, run as _run
 
-mcp = FastMCP("openprism")
+# mcp 2.x reports an empty serverInfo.version unless told otherwise
+mcp = MCPServer("openprism", version=__version__)
 
 
 def _render(result: PrismResult) -> str:
